@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Information</title>
+</head>
+<body>
+    <h1>City Information</h1>
+
+    <div id="cityList"></div>
+
+    <script>
+        // Define the city data as a JavaScript array of objects
+        const cities = [
+            {"name": "Paris", "population": 2140526, "famous_for": "Eiffel Tower, Louvre Museum"},
+            {"name": "Marseille", "population": 863310, "famous_for": "Old Port, Notre-Dame de la Garde"},
+            {"name": "Lyon", "population": 513275, "famous_for": "Basilique Notre-Dame de Fourvière, Traboules"},
+            {"name": "Nice", "population": 342295, "famous_for": "Promenade des Anglais, Cours Saleya"},
+            {"name": "Bordeaux", "population": 257068, "famous_for": "Wine, Place de la Bourse"}
+        ];
+
+        // Get the container element where city information will be displayed
+        const cityListContainer = document.getElementById('cityList');
+
+        // Loop through each city and create HTML elements to display their information
+        cities.forEach(city => {
+            const cityElement = document.createElement('div');
+            cityElement.innerHTML = `
+                <h2>${city.name}</h2>
+                <p>Population: ${city.population.toLocaleString()}</p>
+                <p>Famous for: ${city.famous_for}</p>
+                <hr>
+            `;
+            cityListContainer.appendChild(cityElement);
+        });
+    </script>
+</body>
+</html>
